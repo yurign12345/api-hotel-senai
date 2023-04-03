@@ -1,10 +1,13 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const port = 3000
+const pg = require('pg')
 
-const app = express()
-app.use(bodyParser.json())
+const database = new pg.Client('postgres://rxfrhsgn:1n2BoiZQSkbzFF5hhY6r0cvsGsqLqWSh@babar.db.elephantsql.com/rxfrhsgn')
 
-app.listen(port, () => {
-    console.log('API executando')
+database.connect((erro) => {
+    if (erro) {
+        return console.log('Não foi possível se conectar ao ElephantSQL')
+    } else {
+        return console.log('Conectado ao ElephantSQL')
+    }
 })
+
+module.exports = database

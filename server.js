@@ -8,5 +8,3 @@ app.use(bodyParser.json())
 app.listen(port, () => {
     console.log('API executando')
 })
-
-const bla = ''
