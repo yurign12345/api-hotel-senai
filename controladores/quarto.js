@@ -1,9 +1,9 @@
 const database = require('./../database')
 
-exports.inserirquarto = (req, res, next) => {    
-    const novoQuarto = req.body
-    const query = 'INSERT INTO quarto(quarto_id, descricao) VALUES ($1, $2)'
-    const values = [novoQuarto.Num, novoQuarto.quarto_id, novoQuarto.descricao]
+exports.cadastrarQuarto = (req, res, next) => {    
+    const { descricao } = req.body
+    const query = 'INSERT INTO quarto(descricao) VALUES ($1)'
+    const values = [ descricao ]
 
     database.query(query, values).then(() => {
         res.status(200).send({ mensagem: 'Quarto cadastrado' })

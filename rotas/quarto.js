@@ -2,6 +2,6 @@ const express = require('express');
 const router = express.Router();
 const controller = require('./../controladores/quarto');
 
-router.get('/CadastrarQuarto', controller.inserirquarto);
+router.post('/quarto', controller.cadastrarQuarto);
 
 module.exports = router;
